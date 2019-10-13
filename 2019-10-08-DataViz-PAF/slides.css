@@ -1,0 +1,53 @@
+
+.reveal pre code {
+  font-size: 24px;
+  line-height: 1.3;
+  text-align: left;
+  width: 100%;
+  font-family: 'Dank Mono', monospace;
+  color: #efdcbc;
+  background-color: #3f3f3f;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  overflow-x: none;
+  overflow-y: none;
+}
+
+.reveal .sourceCode.r .kw{
+  color:#efdcbc;
+}
+
+.reveal .sourceCode.r .dt{
+  color:#ff38ff;
+}
+
+.reveal .sourceCode.r .ot{
+  color:#38a2ff;
+}
+
+.reveal .slides {
+  text-align: inherit;
+}
+
+.reveal .slide.level2 h1 {
+  font-size: 60px;
+}
+
+.reveal .slide.level2 h2 {
+  font-size: 60pt;
+}
+
+
+.reveal section p {
+    font-weight: bold;
+    font-size: 40pt;
+}
+
+
+.reveal section img{
+  background:none; 
+  border:none; 
+  box-shadow:none; }
+  
+  
+
