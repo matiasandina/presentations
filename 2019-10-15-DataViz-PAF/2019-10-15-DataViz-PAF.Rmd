@@ -25,7 +25,7 @@ library(quantmod)
 library(sf)
 
 
-theme_mati <- theme_gray(base_size = 14, base_family = "")
+theme_mati <- theme_gray(base_size = 16, base_family = "")
 
 ```
 
@@ -629,23 +629,23 @@ bind_rows(AMZN_min , AMZN_max, AAPL_min, AAPL_max, GOOGL_min, GOOGL_max) %>%
 
 ## 
 
-```{r, out.width="80%"}
+```{r, out.width="75%"}
 include_graphics("img/perception-probabilities.jpg")
 ```
 
 
 ## The Power of Context
 
-## 17550020191008
-## 17:55:00 2019-10-08
+## 17550020191010
+## 17:55:00 2019-10-10
 
-## 17:55:00 2019-10-08
+## 17:55:00 2019-10-10
 
 ```{r, echo=FALSE, out.width="50%", fig.align='center'}
 knitr::include_graphics(c("img/clock_1755.png", "img/calendar.png"))
 ```
 
-## 17:55:00 2019-10-08
+## 17:55:00 2019-10-10
 
 ```{r, echo=FALSE, out.width="50%", fig.align='center'}
 knitr::include_graphics(c("img/clock_0555.png","img/UScalendar.PNG"))
@@ -1001,7 +1001,7 @@ name_position <- filter(stock, date==max(date)) %>%
   mutate(date = lubridate::ymd(date) + 50)
 
 stock_plot <- ggplot(stock, aes(date, value, color=variable))+
-  cowplot::theme_cowplot()+
+  cowplot::theme_cowplot(font_size = 20)+
   geom_line()+
   xlab("") + ylab("closing price ($)")
 ```
