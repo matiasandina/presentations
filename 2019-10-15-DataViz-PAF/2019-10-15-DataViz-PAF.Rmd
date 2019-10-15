@@ -176,7 +176,7 @@ manip <- tibble(opinion=c("yes", "no"),
                 value =c(95, 5))
 
 wrong_y <- ggplot(manip, aes(factor(1), value, fill=opinion)) +
-  geom_col()+
+  geom_col(width = 0.8)+
   ylab("Opinion (%)")+
   xlab("Mystery group")+
   ggtitle("Is it wrong to manipulate the y axis?")+
@@ -184,11 +184,15 @@ wrong_y <- ggplot(manip, aes(factor(1), value, fill=opinion)) +
   theme_bw()+
   theme(legend.position = "bottom")+
   scale_fill_manual(values=c("darkorange", "steelblue"))+
-  theme(axis.text.x=element_blank(), axis.ticks.x = element_line())+
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_line())+
   NULL
 
-wrong_y + coord_cartesian(ylim=c(90,100)) 
+p1 <- wrong_y +
+  scale_y_continuous(expand = c(0,0))+
+  coord_cartesian(ylim=c(90,100))
 
+print(p1)
 
 ```
 
@@ -196,7 +200,11 @@ wrong_y + coord_cartesian(ylim=c(90,100))
 
 ```{r, warning=FALSE, message=FALSE}
 
-cowplot::plot_grid(wrong_y + coord_cartesian(ylim=c(90,100)), wrong_y, 
+cowplot::plot_grid(
+  p1,
+  wrong_y + 
+    scale_y_continuous(expand=c(0,0),
+                      limits=c(0,100)), 
                    ncol=2, align = "h", labels = NA)
 
 ```
@@ -469,7 +477,7 @@ data %>%
 ## Treemap
 
 ```{r}
-include_graphics("img/treemap.png")
+include_graphics("img/treemap_big_letters.png")
 ```
 
 
@@ -625,11 +633,12 @@ bind_rows(AMZN_min , AMZN_max, AAPL_min, AAPL_max, GOOGL_min, GOOGL_max) %>%
 
 ```
 
+ 
+
+```{r, out.width="75%", include=FALSE}
 ## Watch your words
 
-## 
-
-```{r, out.width="75%"}
+##
 include_graphics("img/perception-probabilities.jpg")
 ```
 
@@ -1046,7 +1055,7 @@ ggplot(data,
   theme_mati+
   ylab("Life Expectancy (years)")+
   xlab("")+
-  theme_bw()
+  theme_bw(base_size = 16)
   
 
 ```
@@ -1075,7 +1084,7 @@ ggplot(data,
   xlab("")+
   theme_bw()+
   theme(legend.position="none")
-  
+
   
 ```
 
@@ -1100,19 +1109,15 @@ ggplot(data,
   xlab("")+
   theme_bw()+
   theme(legend.position="none")
+
 ```
 
-
-
-## Advice
-
-* Pay attention to the order of bar plots.
-* Use direct labeling & get rid of legends. 
-* Use color responsably. Mind diversity in color perception and monochrome prints. 
-
-
+## Thank you!
 
 ## References
+
+### This presentation
+### matiasandina.github.io/presentations
 
 ### R Packages
 ### ggplot2, sf, cowplot, ggridges, ggforce, ggrepel, colorblindr
