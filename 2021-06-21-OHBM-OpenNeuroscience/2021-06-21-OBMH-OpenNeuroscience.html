@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Building a user-driven database of open neuroscience projects</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Matias Andina" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Building a user-driven database of open neuroscience projects
+### Matias Andina
+### OHBM
+### June 21st, 2021
+
+---
+
+
+class: center, middle
+
+
+
+#  👋 
+
+--
+
+.pull-left[
+**Matias Andina**
+
+Argentinean 🇦🇷,
+
+Biologist 👩‍🎓,
+Neuroscientist 🐭 🧠
+&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"&gt;&lt;/path&gt;
+&lt;/svg&gt; [**@NeuroMLA**](https://twitter.com/neuroMLA)
+&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"&gt;&lt;/path&gt;
+&lt;/svg&gt; [**@matiasandina**](https://github.com/matiasandina)
+
+]
+
+.pull-right[
+&lt;img src="img/mati.jpeg" width="50%" /&gt;
+]
+
+
+
+&lt;br&gt;
+
+--
+
+
+**[Open Neuroscience](http://open-neuroscience.com/)**
+
+&lt;img src="img/openneuroscience_logo_dark.svg" width="10%" /&gt;
+
+
+---
+layout: true
+
+.footnote[&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"&gt;&lt;/path&gt;
+&lt;/svg&gt; [@neuroMLA](https://twitter.com/neuroMLA)]
+
+---
+## What is Open Neuroscience?
+
+--
+
+A user-driven database of open neuroscience projects
+
+---
+class: top
+## Why does it matter?
+
+
+.center[
+Scientists want to do science.
+
+Science needs tools.
+]
+---
+class:top
+## Why does it matter?
+
+.center[
+Scientists want to do science.
+
+Science needs tools.
+
+
+Tools are often a **major** problem*.
+]
+
+
+.footnote[*: expensive, incompatible, unmodifiable, unavailable, unreliable, irreproducible, old.]
+
+---
+class: middle
+## An idea is born
+
+🧑‍🔬 `\(\rightarrow\)` 🤔 `\(\rightarrow\)` 💡
+
+--
+
+❗ ... 🔧 ...
+
+--
+
+😢
+
+
+---
+class: middle
+## An idea is born
+
+🧑‍🔬 `\(\rightarrow\)` 🤔 `\(\rightarrow\)` 💡
+
+❗ ... 🔧 ...
+
+🔎
+
+---
+class: middle
+## An idea is born
+
+.pull-left[
+🧑‍🔬 `\(\rightarrow\)` 🤔 `\(\rightarrow\)` 💡
+
+❗ ... 🔧 ...
+
+💭 "If only there was a database of open projects"
+
+🔎
+]
+
+.pull-right[
+![](img/img-search-light.svg)&lt;!-- --&gt;
+]
+---
+class:top
+## There's (almost) always an Open Solution
+
+&lt;center&gt;
+.pull-left[
+&lt;img src="img/matlab.png" width="50%" /&gt;
+]
+
+.pull-left[
+&lt;img src="img/python_logo.png" width="50%" /&gt;
+]
+&lt;/center&gt;
+
+---
+class:top
+## There's (almost) always an Open Solution
+
+&lt;center&gt;
+.pull-left[
+&lt;img src="img/matlab.png" width="50%" /&gt;
+]
+
+.pull-left[
+&lt;img src="img/octave.png" width="50%" /&gt;
+]
+&lt;/center&gt;
+---
+class: top
+## What about Hardware?
+
+--
+
+.center[
+&lt;img src="img/hardware.png" width="60%" /&gt;
+]
+
+---
+## What is Open Neuroscience?
+
+A **.blue[user-driven]** database of open neuroscience projects
+
+---
+# TODO: ADD HERE HOW WE WORK
+
+
+---
+class: inverse, center, middle
+## What can you do?
+---
+class: middle
+## Add a project
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.pull-left[
+Use this link to add your project
+
+https://bit.ly/2LkTd2a
+]
+
+.pull-right[
+![](img/img-addProject-light.svg)&lt;!-- --&gt;
+
+]
+
+---
+class: middle
+## Help solving issues
+
+.pull-left[
+Use this link to find and solve issues on our site
+
+&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"&gt;&lt;/path&gt;
+&lt;/svg&gt;[Open Neuroscience Issues](https://github.com/open-neuroscience/open-neuroscience.github.io/issues)
+
+]
+
+.pull-right[
+![](img/img-contribute-light.svg)&lt;!-- --&gt;
+
+]
+
+---
+class: middle
+## Be Social
+
+
+.pull-left[
+Know someone who's made a great open project? 
+
+Tell them about Open Neuroscience!
+
+Help the movement grow organically by sharing our content
+
+&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"&gt;&lt;/path&gt;
+&lt;/svg&gt; [**@openneurosci**](https://twitter.com/openneurosci)
+]
+
+.pull-right[
+&lt;img src="img/img-promote-light.svg" width="110%" /&gt;
+
+]
+
+---
+## Be awesome
+
+* Adopt open source practices in your research*
+
+--
+
+* Share and help implement open source practices within your team
+
+--
+
+* Sponsor open source projects (💵 and/or ⏳)
+
+.footnote[Visit [OSHWA](https://www.oshwa.org/) to learn more!]
+
+---
+## Our team
+
+&lt;img src="img/team.png" width="1141" /&gt;
+
+---
+class: center, middle, inverse
+## Thank You
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "14.6:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
