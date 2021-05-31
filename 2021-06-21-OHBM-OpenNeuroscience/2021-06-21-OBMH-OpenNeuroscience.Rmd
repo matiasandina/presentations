@@ -13,7 +13,7 @@ output:
       ratio: '14.6:9'
       highlightStyle: github
       highlightLines: true
-      countIncrementalSlides: true
+      countIncrementalSlides: false
     navigation:
       scroll: false
 ---
@@ -101,32 +101,6 @@ layout: true
 A user-driven database of open neuroscience projects
 
 ---
-class: top
-## Why does it matter?
-
-
-.center[
-Scientists want to do science.
-
-Science needs tools.
-]
----
-class:top
-## Why does it matter?
-
-.center[
-Scientists want to do science.
-
-Science needs tools.
-
-
-Tools are often a **major** problem*.
-]
-
-
-.footnote[*: expensive, incompatible, unmodifiable, unavailable, unreliable, irreproducible, old.]
-
----
 class: middle
 ## An idea is born
 
@@ -170,8 +144,35 @@ class: middle
 knitr::include_graphics("img/img-search-light.svg")
 ```
 ]
+
+---
+class: top
+## Why does it matter?
+
+
+.center[
+Scientists want to do science.
+
+Science needs tools.
+]
 ---
 class:top
+## Why does it matter?
+
+.center[
+Scientists want to do science.
+
+Science needs tools.
+
+
+Tools are often a **major** problem*.
+]
+
+
+.footnote[*: expensive, incompatible, unmodifiable, unavailable, unreliable, irreproducible, old.]
+
+---
+class:middle
 ## There's (almost) always an Open Solution
 
 <center>
@@ -189,7 +190,7 @@ knitr::include_graphics("img/python_logo.png")
 </center>
 
 ---
-class:top
+class:middle
 ## There's (almost) always an Open Solution
 
 <center>
@@ -222,8 +223,204 @@ knitr::include_graphics("img/hardware.png")
 
 A **.blue[user-driven]** database of open neuroscience projects
 
+<br>
+
+```{r}
+knitr::include_graphics("img/logo_mix.svg")
+```
+
 ---
-# TODO: ADD HERE HOW WE WORK
+class: top
+## What is Open Neuroscience?
+
+Collaborative system:
+* Text based pipeline (`.csv` $\rightarrow$ `.md` $\rightarrow$ `.html`)
+
+--
+
+* Everything runs out in the open `r icons::icon_find("github")`
+
+--
+
+* Anyone can create issues and/or pull requests
+
+--
+
+* Everyone is welcome to add their projects*
+
+--
+
+* We use a twitter bot to drive engagement `r icons::icon_find("twitter")` `r emo::ji("robot")`
+
+
+.footnote[We just check for spam]
+
+
+---
+class: top
+## Our metrics
+
+We use **[.blue[plausible]](https://plausible.io/open-neuroscience.com?period=6mo)**. Our metrics are public, we aggregate and show them on **[our site](https://open-neuroscience.com/metrics/)**.
+
+--
+
+.pull-left[
+Last 12 months in **[open-neuroscience.com](https://open-neuroscience.com/)**
+
+* ~200 open source projects
+
+* ~10K visitors
+]
+
+.pull-right[
+```{r}
+knitr::include_graphics("img/openneuro-barplot.png")
+```
+]
+
+---
+class: top
+## Our metrics
+
+We use **[.blue[plausible]](https://plausible.io/open-neuroscience.com?period=6mo)**. Our matrics are public, we aggregate and show them on **[our site](https://open-neuroscience.com/metrics/)**.
+
+.pull-left[
+Last 12 months in **[open-neuroscience.com](https://open-neuroscience.com/)**
+
+* ~200 open source projects
+
+* ~10K visitors
+
+* A global experience
+]
+
+.pull-right[
+```{r}
+knitr::include_graphics("img/openneuro-map.png")
+```
+]
+
+---
+## Seminar Series
+
+Open Neuroscience meets [world-wide.org](https://www.world-wide.org/Neuro/Open-Source-Neuro/)
+
+--
+
+`r emo::ji("calendar")` Tool showcase each Friday 
+
+`r icons::feather_icons("youtube")` [Live Broadcast on YouTube](https://www.youtube.com/channel/UCHPvi_HaEU7OQgXQBh9ECvQ)
+
+---
+## Our metrics
+
+### [`r icons::icon_style(icons::feather_icons("twitter"), fill="#2e68fb")`](https://www.twitter.com/openneurosci)
+
+~ 2K+ followers
+
+~ 150K+ tweet views
+
+--
+
+### [`r icons::icon_style(icons::feather_icons("youtube"), fill="#F50C3D")`](https://www.youtube.com/channel/UCHPvi_HaEU7OQgXQBh9ECvQ)
+
+~ 100 subscribers
+
+~ 2K+ video reproductions on our seminar series 
+
+---
+class: inverse, center, middle
+## What's next?
+
+---
+class: top
+## Growth
+
+```
+`r emo::ji("target")` Increase access to open tools in neuroscience.
+```
+
+--
+
+Tool adoption depends on fragile chains
+
+Creator's spheres of influence are often independent and disconnected.
+
+--
+
+```{r}
+DiagrammeR::grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [
+  layout = dot,
+  overlap = true, 
+  fontsize = 10,
+  nodestep = 1.5,
+  rankdir = LR]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica,
+        fillcolor = red]
+  Creator;  User
+  
+  node [shape = circle,
+        fontname = Helvetica,
+        label = '']
+  X1; X2; X3; X4; X5
+
+  # several 'edge' statements
+  Creator->X1 -> X2 -> X3 -> X4 -> X5 
+  X5->User[constraints = false]
+}
+", height = 300)
+```
+
+
+---
+## Growth
+
+```
+`r emo::ji("target")` Increase access to open tools in neuroscience.
+```
+
+--
+
+Facilitate tool adoption by creating a hub
+
+--
+
+
+```{r}
+DiagrammeR::grViz("
+digraph dot {
+
+graph [layout = dot]
+
+node [shape = circle,
+      style = filled,
+      color = grey,
+      label = '']
+
+node [fillcolor = '#2e68fb']
+a
+
+node [fillcolor = green, shape = rectangle]
+b c d
+
+node [fillcolor = orange]
+
+edge [color = grey]
+b -> a
+c -> a
+d -> a
+a -> {e f g h}
+a -> {k l m n}
+a -> {q r s t}
+}", height = 300)
+```
 
 
 ---
@@ -250,6 +447,8 @@ knitr::include_graphics("img/img-addProject-light.svg")
 
 ]
 
+.footnote[Image by Edwin Cruz]
+
 ---
 class: middle
 ## Help solving issues
@@ -268,6 +467,7 @@ knitr::include_graphics("img/img-contribute-light.svg")
 
 ]
 
+.footnote[Image by Edwin Cruz]
 ---
 class: middle
 ## Be Social
@@ -290,6 +490,7 @@ knitr::include_graphics("img/img-promote-light.svg")
 
 ]
 
+.footnote[Image by Edwin Cruz]
 ---
 ## Be awesome
 

@@ -4,6 +4,10 @@
     <title>Building a user-driven database of open neuroscience projects</title>
     <meta charset="utf-8" />
     <meta name="author" content="Matias Andina" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/viz/viz.js"></script>
+    <link href="libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
+    <script src="libs/grViz-binding/grViz.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -31,7 +35,7 @@ class: center, middle
 
 Argentinean 🇦🇷,
 
-Biologist 👩‍🎓,
+Biologist 👨‍🎓,
 Neuroscientist 🐭 🧠
 &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;
   &lt;path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"&gt;&lt;/path&gt;
@@ -71,32 +75,6 @@ layout: true
 --
 
 A user-driven database of open neuroscience projects
-
----
-class: top
-## Why does it matter?
-
-
-.center[
-Scientists want to do science.
-
-Science needs tools.
-]
----
-class:top
-## Why does it matter?
-
-.center[
-Scientists want to do science.
-
-Science needs tools.
-
-
-Tools are often a **major** problem*.
-]
-
-
-.footnote[*: expensive, incompatible, unmodifiable, unavailable, unreliable, irreproducible, old.]
 
 ---
 class: middle
@@ -140,8 +118,35 @@ class: middle
 .pull-right[
 ![](img/img-search-light.svg)&lt;!-- --&gt;
 ]
+
+---
+class: top
+## Why does it matter?
+
+
+.center[
+Scientists want to do science.
+
+Science needs tools.
+]
 ---
 class:top
+## Why does it matter?
+
+.center[
+Scientists want to do science.
+
+Science needs tools.
+
+
+Tools are often a **major** problem*.
+]
+
+
+.footnote[*: expensive, incompatible, unmodifiable, unavailable, unreliable, irreproducible, old.]
+
+---
+class:middle
 ## There's (almost) always an Open Solution
 
 &lt;center&gt;
@@ -155,7 +160,7 @@ class:top
 &lt;/center&gt;
 
 ---
-class:top
+class:middle
 ## There's (almost) always an Open Solution
 
 &lt;center&gt;
@@ -182,8 +187,149 @@ class: top
 
 A **.blue[user-driven]** database of open neuroscience projects
 
+&lt;br&gt;
+
+![](img/logo_mix.svg)&lt;!-- --&gt;
+
 ---
-# TODO: ADD HERE HOW WE WORK
+class: top
+## What is Open Neuroscience?
+
+Collaborative system:
+* Text based pipeline (`.csv` `\(\rightarrow\)` `.md` `\(\rightarrow\)` `.html`)
+
+--
+
+* Everything runs out in the open &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"&gt;&lt;/path&gt;
+&lt;/svg&gt;
+
+--
+
+* Anyone can create issues and/or pull requests
+
+--
+
+* Everyone is welcome to add their projects*
+
+--
+
+* We use a twitter bot to drive engagement &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"&gt;&lt;/path&gt;
+&lt;/svg&gt; 🤖
+
+
+.footnote[We just check for spam]
+
+
+---
+class: top
+## Our metrics
+
+We use **[.blue[plausible]](https://plausible.io/open-neuroscience.com?period=6mo)**. Our metrics are public, we aggregate and show them on **[our site](https://open-neuroscience.com/metrics/)**.
+
+--
+
+.pull-left[
+Last 12 months in **[open-neuroscience.com](https://open-neuroscience.com/)**
+
+* ~200 open source projects
+
+* ~10K visitors
+]
+
+.pull-right[
+&lt;img src="img/openneuro-barplot.png" width="896" /&gt;
+]
+
+---
+class: top
+## Our metrics
+
+We use **[.blue[plausible]](https://plausible.io/open-neuroscience.com?period=6mo)**. Our matrics are public, we aggregate and show them on **[our site](https://open-neuroscience.com/metrics/)**.
+
+.pull-left[
+Last 12 months in **[open-neuroscience.com](https://open-neuroscience.com/)**
+
+* ~200 open source projects
+
+* ~10K visitors
+
+* A global experience
+]
+
+.pull-right[
+&lt;img src="img/openneuro-map.png" width="896" /&gt;
+]
+
+---
+## Seminar Series
+
+Open Neuroscience meets [world-wide.org](https://www.world-wide.org/Neuro/Open-Source-Neuro/)
+
+--
+
+📆 Tool showcase each Friday 
+
+&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"&gt;&lt;/path&gt;  &lt;polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"&gt;&lt;/polygon&gt;&lt;/svg&gt; [Live Broadcast on YouTube](https://www.youtube.com/channel/UCHPvi_HaEU7OQgXQBh9ECvQ)
+
+---
+## Our metrics
+
+### [&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#2e68fb;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"&gt;&lt;/path&gt;&lt;/svg&gt;](https://www.twitter.com/openneurosci)
+
+~ 2K+ followers
+
+~ 150K+ tweet views
+
+--
+
+### [&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#F50C3D;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"&gt;&lt;/path&gt;  &lt;polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"&gt;&lt;/polygon&gt;&lt;/svg&gt;](https://www.youtube.com/channel/UCHPvi_HaEU7OQgXQBh9ECvQ)
+
+~ 100 subscribers
+
+~ 2K+ video reproductions on our seminar series 
+
+---
+class: inverse, center, middle
+## What's next?
+
+---
+class: top
+## Growth
+
+```
+🎯 Increase access to open tools in neuroscience.
+```
+
+--
+
+Tool adoption depends on fragile chains
+
+Creator's spheres of influence are often independent and disconnected.
+
+--
+
+<div id="htmlwidget-99e28c149dd0b003f313" style="width:504px;height:300px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-99e28c149dd0b003f313">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [\n  layout = dot,\n  overlap = true, \n  fontsize = 10,\n  nodestep = 1.5,\n  rankdir = LR]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        fillcolor = red]\n  Creator;  User\n  \n  node [shape = circle,\n        fontname = Helvetica,\n        label = \"\"]\n  X1; X2; X3; X4; X5\n\n  # several \"edge\" statements\n  Creator->X1 -> X2 -> X3 -> X4 -> X5 \n  X5->User[constraints = false]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+
+
+---
+## Growth
+
+```
+🎯 Increase access to open tools in neuroscience.
+```
+
+--
+
+Facilitate tool adoption by creating a hub
+
+--
+
+
+<div id="htmlwidget-096ed4dc22828069cb1c" style="width:504px;height:300px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-096ed4dc22828069cb1c">{"x":{"diagram":"\ndigraph dot {\n\ngraph [layout = dot]\n\nnode [shape = circle,\n      style = filled,\n      color = grey,\n      label = \"\"]\n\nnode [fillcolor = \"#2e68fb\"]\na\n\nnode [fillcolor = green, shape = rectangle]\nb c d\n\nnode [fillcolor = orange]\n\nedge [color = grey]\nb -> a\nc -> a\nd -> a\na -> {e f g h}\na -> {k l m n}\na -> {q r s t}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 
 ---
@@ -208,6 +354,8 @@ https://bit.ly/2LkTd2a
 
 ]
 
+.footnote[Image by Edwin Cruz]
+
 ---
 class: middle
 ## Help solving issues
@@ -226,6 +374,7 @@ Use this link to find and solve issues on our site
 
 ]
 
+.footnote[Image by Edwin Cruz]
 ---
 class: middle
 ## Be Social
@@ -248,6 +397,7 @@ Help the movement grow organically by sharing our content
 
 ]
 
+.footnote[Image by Edwin Cruz]
 ---
 ## Be awesome
 
@@ -278,7 +428,7 @@ class: center, middle, inverse
 "ratio": "14.6:9",
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": true
+"countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
